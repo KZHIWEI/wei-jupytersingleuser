@@ -46,5 +46,5 @@ RUN conda config --set channel_priority flexible
 RUN conda install -n cling xeus-cling nb_conda_kernels -y
 WORKDIR /home/$NB_USER/
 USER $NB_USER
-
-RUN conda config --system --prepend envs_dirs '~/.conda/envs'
+COPY ./init.sh /etc/condaenv/init.sh
+RUN pip install conda-pack
